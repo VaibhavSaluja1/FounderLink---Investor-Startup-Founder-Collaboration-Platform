@@ -1,0 +1,23 @@
+server:
+  port: 8887
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:/config
+        git:
+          uri: https://github.com/VaibhavSaluja10/founder-link-configServer.git
+          clone-on-start: true
+          default-label: main
+  profiles:
+    active: native
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka-service:8760/eureka/
+    register-with-eureka: true
+    fetch-registry: true
